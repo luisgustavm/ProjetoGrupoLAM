@@ -1,0 +1,42 @@
+﻿@model ProjetoLAM.Models.Genero
+
+@{
+    ViewData["Title"] = "Editar Gênero";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 60vh; background-color: #f0f4ff;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+                <p class="text-center text-muted mb-4">Atualize as informações do gênero na biblioteca virtual</p>
+
+                <form asp-action="Edit">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="GeneroId" />
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Nome" class="form-control form-control-lg" placeholder="Ex.: Fantasia, Romance, Ficção Científica" />
+                        <label asp-for="Nome">Nome do Gênero</label>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold">Salvar Alterações</button>
+                    </div>
+
+                    <div class="text-center">
+                        <a asp-action="Index" class="btn btn-secondary btn-lg fw-bold">Voltar para a lista de gêneros</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

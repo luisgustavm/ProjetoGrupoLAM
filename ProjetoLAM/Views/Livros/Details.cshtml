@@ -1,0 +1,37 @@
+﻿@model ProjetoLAM.Models.Livros
+
+@{
+    ViewData["Title"] = "Detalhes do Livro";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 70vh; background-color: #f0f4ff;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4" style="background-color: #f0f4ff;">
+                <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+
+                <dl class="row mb-4">
+                    <dt class="col-sm-4 fw-semibold">Título</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Titulo)</dd>
+
+                    <dt class="col-sm-4 fw-semibold">Autor</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Autor)</dd>
+
+                    <dt class="col-sm-4 fw-semibold">Ano de Publicação</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.AnoPublicacao)</dd>
+
+                    <dt class="col-sm-4 fw-semibold">ISBN</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.ISBN)</dd>
+
+                    <dt class="col-sm-4 fw-semibold">Gênero</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Genero.Nome)</dd>
+                </dl>
+
+                <div class="d-grid gap-2">
+                    <a asp-action="Edit" asp-route-id="@Model?.LivroId" class="btn btn-primary btn-lg fw-bold">Editar Livro</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg fw-bold">Voltar para a lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

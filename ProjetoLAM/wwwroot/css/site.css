@@ -1,22 +1,140 @@
+/* ========================
+   BASE DO HTML E BODY
+======================== */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    margin-bottom: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4ff; /* quase branco com azul */
+    color: #0b1e3a; /* texto escuro */
 }
+
+/* ========================
+   NAVBAR
+======================== */
+.navbar {
+    background-color: #082147; /* azul escuro */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+    .navbar .nav-link {
+        color: #ffffff;
+        transition: color 0.3s;
+    }
+
+        .navbar .nav-link:hover {
+            color: #258cfb;
+        }
+
+.navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* ========================
+   BOTÕES BRANCOS E INTERATIVOS
+======================== */
+.btn, input[type="submit"], button {
+    background-color: white;
+    color: #0b1e3a;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
+    transition: all 0.2s;
+}
+
+    .btn:hover, input[type="submit"]:hover, button:hover {
+        background-color: #e6eaff;
+        color: #0b1e3a;
+        border-color: #bbb;
+    }
+
+    .btn:focus, .btn:active:focus, .btn-link.nav-link:focus,
+    .form-control:focus, .form-check-input:focus {
+        box-shadow: 0 0 0 0.1rem #f0f4ff, 0 0 0 0.25rem #258cfb;
+        outline: none;
+    }
+
+/* ========================
+   FORMULÁRIOS
+======================== */
+.form-control {
+    border-radius: 0.35rem;
+    padding: 0.5rem;
+    background-color: #ffffff; /* fundo dos inputs branco */
+    border: 1px solid #258cfb;
+    color: #0b1e3a;
+}
+
+    .form-control:focus {
+        background-color: #ffffff;
+        color: #0b1e3a;
+        border-color: #258cfb;
+    }
+
+/* ========================
+   TABELAS
+======================== */
+.table {
+    background-color: #ffffff; /* fundo branco */
+    color: #0b1e3a;
+    border-radius: 0.35rem;
+}
+
+    .table th {
+        background-color: #258cfb; /* cabeçalho azul */
+        color: #fff;
+    }
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(37, 140, 251, 0.1); /* linhas alternadas */
+}
+
+/* ========================
+   CARDS (para livros)
+======================== */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+/* ========================
+   RODAPÉ
+======================== */
+footer.footer {
+    background-color: #061533; /* azul escuro */
+    padding: 1rem 0;
+    text-align: center;
+    color: #ffffff;
+    border-top: 1px solid #258cfb;
+}
+
+    footer.footer a {
+        color: #258cfb;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        footer.footer a:hover {
+            color: #ffffff;
+        }

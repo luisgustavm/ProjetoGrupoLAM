@@ -1,0 +1,40 @@
+﻿@model ProjetoLAM.Models.LivrosDisponiveis
+
+@{
+    ViewData["Title"] = "Excluir Livro Disponível";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 60vh; background-color: #f0f4ff;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+                <p class="text-center text-muted mb-4">Tem certeza de que deseja remover este livro da coleção disponível?</p>
+
+                <h4 class="mb-3">Informações do Livro</h4>
+                <hr />
+                <dl class="row mb-4">
+                    <dt class="col-sm-4">Quantidade em Estoque</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Estoque)</dd>
+
+                    <dt class="col-sm-4">Autor do Livro</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Livros.Autor)</dd>
+
+                    <dt class="col-sm-4">Gênero</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Genero.Nome)</dd>
+
+                    <dt class="col-sm-4">Status do Livro</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Status)</dd>
+                </dl>
+
+                <div class="d-flex justify-content-center gap-2">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="LivrosDisponiveisId" />
+                        <button type="submit" class="btn btn-danger btn-lg fw-bold">Confirmar Exclusão</button>
+                    </form>
+                    <a asp-action="Index" class="btn btn-secondary btn-lg fw-bold">Voltar para a lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model ProjetoLAM.Models.Livros
+
+@{
+    ViewData["Title"] = "Editar Livro";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 70vh; background-color: #f0f4ff;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4" style="background-color: #f0f4ff;">
+                <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+                <p class="text-center text-muted mb-4">Atualize os dados do livro na Biblioteca Virtual</p>
+
+                <form asp-action="Edit">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="LivroId" />
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Titulo" class="form-control form-control-lg" placeholder="Título do Livro" />
+                        <label asp-for="Titulo">Título</label>
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Autor" class="form-control form-control-lg" placeholder="Autor" />
+                        <label asp-for="Autor">Autor</label>
+                        <span asp-validation-for="Autor" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="AnoPublicacao" type="date" class="form-control form-control-lg" />
+                        <label asp-for="AnoPublicacao">Ano de Publicação</label>
+                        <span asp-validation-for="AnoPublicacao" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="ISBN" class="form-control form-control-lg" placeholder="ISBN" />
+                        <label asp-for="ISBN">ISBN</label>
+                        <span asp-validation-for="ISBN" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <select asp-for="GeneroId" class="form-select form-control-lg" asp-items="ViewBag.GeneroId">
+                            <option value="">-- Selecione o gênero --</option>
+                        </select>
+                        <label asp-for="GeneroId">Gênero</label>
+                        <span asp-validation-for="GeneroId" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold">Salvar Alterações</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-lg fw-bold">Voltar para a lista</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

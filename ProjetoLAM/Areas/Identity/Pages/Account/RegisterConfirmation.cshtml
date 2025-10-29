@@ -1,0 +1,36 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Confirmação de Registro";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 60vh; background-color: #f0f4ff;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h1 class="text-center fw-bold text-primary mb-4">@ViewData["Title"]</h1>
+
+                @if (Model.DisplayConfirmAccountLink)
+                {
+                    <p class="text-center text-muted mb-3">
+                        Este aplicativo ainda não possui um serviço real de envio de e-mails registrado. Veja
+                        <a href="https://aka.ms/aspaccountconf" class="text-primary">aqui como configurar</a>.
+                    </p>
+                    <div class="text-center mt-3">
+                        <a id="confirm-link" href="@Model.EmailConfirmationUrl" class="btn btn-primary btn-lg fw-bold">Clique aqui para confirmar sua conta</a>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-center text-muted mb-3">
+                        Por favor, verifique seu e-mail para confirmar sua conta.
+                    </p>
+                }
+
+                <div class="text-center mt-4">
+                    <a asp-page="/Index" class="btn btn-outline-secondary btn-lg fw-bold">Voltar à Página Inicial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

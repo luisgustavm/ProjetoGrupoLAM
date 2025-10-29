@@ -1,0 +1,31 @@
+﻿@model ProjetoLAM.Models.Genero
+
+@{
+    ViewData["Title"] = "Excluir Gênero";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 60vh; background-color: #f0f4ff;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+                <p class="text-center text-muted mb-4">Tem certeza de que deseja remover este gênero da biblioteca virtual?</p>
+
+                <h4>Detalhes do Gênero</h4>
+                <hr />
+                <dl class="row mb-4">
+                    <dt class="col-sm-4">Nome do Gênero</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Nome)</dd>
+                </dl>
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="GeneroId" />
+                    <div class="d-flex justify-content-between">
+                        <input type="submit" value="Confirmar Exclusão" class="btn btn-danger btn-lg fw-bold" />
+                        <a asp-action="Index" class="btn btn-secondary btn-lg fw-bold">Voltar para a lista de gêneros</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

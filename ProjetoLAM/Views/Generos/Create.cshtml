@@ -1,0 +1,41 @@
+﻿@model ProjetoLAM.Models.Genero
+
+@{
+    ViewData["Title"] = "Adicionar Gênero";
+}
+
+<!-- Título -->
+<div class="text-center mb-4">
+    <h1 class="fw-bold text-primary">Adicionar Novo Gênero de Livro</h1>
+    <p class="text-muted">Preencha os dados abaixo para cadastrar um gênero na biblioteca virtual</p>
+</div>
+
+<!-- Formulário -->
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body" style="background-color: #f0f4ff;">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label asp-for="Nome" class="form-label fw-semibold">Nome do Gênero</label>
+                        <input asp-for="Nome" class="form-control form-control-lg" placeholder="Ex.: Fantasia, Romance, Ficção Científica" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <input type="submit" value="Adicionar Gênero" class="btn btn-primary btn-lg fw-bold" />
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-lg fw-bold">Voltar para a lista de gêneros</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,54 @@
+﻿@using Azure.Core
+@model IEnumerable<ProjetoLAM.Models.LivrosDisponiveis>
+
+@{
+    ViewData["Title"] = "Livros Disponíveis";
+}
+
+<div class="container py-5">
+    <h1 class="text-center text-primary fw-bold mb-4">Biblioteca Virtual - Livros Disponíveis</h1>
+
+    <div class="mb-3 text-center">
+        <a asp-action="Create" class="btn btn-success btn-lg fw-bold shadow-sm">Adicionar Detalhes do Livro</a>
+    </div>
+
+    <div class="mb-4">
+        <form class="d-flex" method="get" asp-action="Index">
+            <input class="form-control me-2" type="search" name="searchString" placeholder="Pesquisar livro, autor ou gênero..." value="@Context.Request.Query["searchString"]" />
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+        </form>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-striped table-hover align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Título do Livro</th>
+                    <th>Autor</th>
+                    <th>Gênero</th>
+                    <th>Em Estoque</th>
+                    <th>Status do Livro</th>
+                    <th style="width: 250px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        
+                        <td>@Html.DisplayFor(modelItem => item.Livros.Titulo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Livros.Autor)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Genero.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Estoque)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.LivrosDisponiveisId" class="btn btn-primary btn-sm me-1 shadow-sm">Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.LivrosDisponiveisId" class="btn btn-info btn-sm me-1 shadow-sm">Detalhes</a>
+                            <a asp-action="Delete" asp-route-id="@item.LivrosDisponiveisId" class="btn btn-danger btn-sm shadow-sm">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

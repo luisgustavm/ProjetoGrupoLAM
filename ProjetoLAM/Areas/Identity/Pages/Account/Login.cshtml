@@ -1,0 +1,68 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 80vh; background-color: #f0f4ff;">
+    <div class="col-md-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+                <p class="text-center text-muted mb-4">Entre com sua conta para acessar a Biblioteca Virtual</p>
+
+                <form id="account" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email" class="form-control form-control-lg" placeholder="name@example.com" autocomplete="username" />
+                        <label asp-for="Input.Email">Email</label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Password" type="password" class="form-control form-control-lg" placeholder="password" autocomplete="current-password" />
+                        <label asp-for="Input.Password">Senha</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" asp-for="Input.RememberMe" />
+                        <label class="form-check-label" asp-for="Input.RememberMe">Lembrar-me</label>
+                    </div>
+
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold w-100">Entrar</button>
+                    </div>
+
+                    <div class="text-center">
+                        <p><a asp-page="./ForgotPassword" class="text-primary">Esqueceu sua senha?</a></p>
+                        <p><a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-primary">Cadastrar novo usuário</a></p>
+                        <p><a asp-page="./ResendEmailConfirmation" class="text-primary">Reenviar confirmação de email</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+        {
+            <div class="mt-4 text-center">
+                <h5 class="fw-semibold text-muted mb-3">Ou use outro serviço para entrar</h5>
+                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    @foreach (var provider in Model.ExternalLogins!)
+                    {
+                        <button type="submit" class="btn btn-outline-primary btn-lg fw-bold w-100 mb-2" name="provider" value="@provider.Name">
+                            @provider.DisplayName
+                        </button>
+                    }
+                </form>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

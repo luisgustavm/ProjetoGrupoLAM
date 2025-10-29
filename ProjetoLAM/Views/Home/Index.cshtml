@@ -1,8 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Página Inicial";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-5" style="background-color: #f0f4ff; min-height: 80vh;">
+    <h1 class="display-4 fw-bold mb-4" style="color: #082147;">Bem-vindo à Biblioteca Virtual</h1>
+    <p class="lead mb-4" style="color: #051533;">
+        Explore nossa coleção de livros, descubra novos gêneros e gerencie sua biblioteca virtual de forma interativa.
+    </p>
+
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a asp-controller="LivrosDisponiveis" asp-action="Index" class="btn btn-primary btn-lg">Catálogo de Livros</a>
+        <a asp-controller="Generos" asp-action="Index" class="btn btn-outline-primary btn-lg">Gêneros de Livros</a>
+        <a asp-controller="Livros" asp-action="Index" class="btn btn-success btn-lg">Gerenciar Livros</a>
+    </div>
+
+    <div class="mt-5">
+        <img src="~/img/biblioteca.png" alt="Biblioteca Virtual" class="img-fluid rounded shadow" style="max-width: 50%; height: auto;">
+    </div>
+
 </div>

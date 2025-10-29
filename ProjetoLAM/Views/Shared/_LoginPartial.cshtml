@@ -2,25 +2,65 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+<ul class="navbar-nav d-flex align-items-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item me-3">
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" class="text-decoration-none"><span class="nav-link fw-semibold text-white">Olá, @User.Identity?.Name!</span></a>
+        </li>
+        <li class="nav-item">
+            <form class="d-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="btn btn-outline-light btn-sm fw-bold px-3 py-1">
+                    Sair
+                </button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item me-2">
+            <a class="btn btn-outline-light btn-sm fw-bold px-3 py-1" asp-area="Identity" asp-page="/Account/Register">
+                Cadastrar
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-light btn-sm fw-bold text-primary px-3 py-1" asp-area="Identity" asp-page="/Account/Login">
+                Login
+            </a>
+        </li>
+    }
 </ul>
+
+<style>
+    /* Hover suave e sombra nos botões do navbar */
+    .navbar-nav .btn {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+        .navbar-nav .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+    /* Texto branco consistente para botões de navbar */
+    .navbar-nav .btn-outline-light {
+        border-color: #ffffff;
+    }
+
+        .navbar-nav .btn-outline-light:hover {
+            background-color: #e6eaff;
+            color: #0b1e3a;
+            border-color: #258cfb;
+        }
+
+    .navbar-nav .btn-light {
+        background-color: #ffffff;
+        color: #0b1e3a;
+    }
+
+        .navbar-nav .btn-light:hover {
+            background-color: #e6eaff;
+            color: #0b1e3a;
+            border-color: #258cfb;
+        }
+</style>

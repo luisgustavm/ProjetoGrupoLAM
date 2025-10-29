@@ -1,0 +1,60 @@
+﻿@model ProjetoLAM.Models.LivrosDisponiveis
+
+@{
+    ViewData["Title"] = "Editar Livro Disponível";
+}
+
+<div class="row justify-content-center py-5" style="min-height: 60vh; background-color: #f0f4ff;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+                <p class="text-center text-muted mb-4">Atualize as informações do livro disponível na biblioteca virtual</p>
+
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="LivrosDisponiveisId" />
+
+                    <div class="mb-3">
+                        <label asp-for="Estoque" class="form-label">Quantidade em Estoque</label>
+                        <input asp-for="Estoque" class="form-control" placeholder="Ex.: 10" />
+                        <span asp-validation-for="Estoque" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="LivroId" class="form-label">Livro</label>
+                        <select asp-for="LivroId" class="form-control" asp-items="ViewBag.LivroId">
+                            <option value="">-- Selecione o livro --</option>
+                        </select>
+                        <span asp-validation-for="LivroId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="GeneroId" class="form-label">Gênero</label>
+                        <select asp-for="GeneroId" class="form-control" asp-items="ViewBag.GeneroId">
+                            <option value="">-- Selecione o gênero --</option>
+                        </select>
+                        <span asp-validation-for="GeneroId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Status" class="form-label">Status do Livro</label>
+                        <input asp-for="Status" class="form-control" placeholder="Ex.: Disponível, Emprestado" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-center gap-2">
+                        <input type="submit" value="Salvar Alterações" class="btn btn-primary btn-lg fw-bold" />
+                        <a asp-action="Index" class="btn btn-secondary btn-lg fw-bold">Voltar para a lista</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,35 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Sair";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh; background-color: #f0f4ff;">
+    <div class="card shadow-lg border-0 p-4" style="max-width: 500px; width: 100%;">
+        <h1 class="text-center fw-bold text-primary mb-3">@ViewData["Title"]</h1>
+        <p class="text-center text-muted mb-4">
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                @:Clique no botão abaixo para sair da Biblioteca Virtual.
+            }
+            else
+            {
+                @:Você saiu da Biblioteca Virtual com sucesso.
+            }
+        </p>
+
+        @if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form class="d-grid gap-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="btn btn-primary btn-lg fw-bold">Sair</button>
+                <a asp-page="/Index" class="btn btn-outline-secondary btn-lg fw-bold">Voltar para a página inicial</a>
+            </form>
+        }
+        else
+        {
+            <div class="text-center mt-3">
+                <a asp-page="/Index" class="btn btn-primary btn-lg fw-bold">Voltar para a página inicial</a>
+            </div>
+        }
+    </div>
+</div>
