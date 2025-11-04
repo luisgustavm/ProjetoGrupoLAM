@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjetoLAM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45eab70ac2912ee1e2af3fe21867db591d9bcd29")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8d60093c1757339d924534f70fcdee624de494e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjetoLAM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjetoLAM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

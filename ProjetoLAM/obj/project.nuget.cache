@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RbkmzU5uQjs=",
+  "dgSpecHash": "DBNyz0atfJc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Luis Gustavo\\Desktop\\BackEnd\\MVC\\ProjetoLAM\\ProjetoLAM\\ProjetoLAM.csproj",
+  "projectFilePath": "C:\\Users\\Luis Gustavo\\Source\\Repos\\ProjetoGrupoLAM\\ProjetoLAM\\ProjetoLAM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Luis Gustavo\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Luis Gustavo\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

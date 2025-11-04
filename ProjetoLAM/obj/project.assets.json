@@ -8364,11 +8364,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luis Gustavo\\Desktop\\BackEnd\\MVC\\ProjetoLAM\\ProjetoLAM\\ProjetoLAM.csproj",
+      "projectUniqueName": "C:\\Users\\Luis Gustavo\\Source\\Repos\\ProjetoGrupoLAM\\ProjetoLAM\\ProjetoLAM.csproj",
       "projectName": "ProjetoLAM",
-      "projectPath": "C:\\Users\\Luis Gustavo\\Desktop\\BackEnd\\MVC\\ProjetoLAM\\ProjetoLAM\\ProjetoLAM.csproj",
+      "projectPath": "C:\\Users\\Luis Gustavo\\Source\\Repos\\ProjetoGrupoLAM\\ProjetoLAM\\ProjetoLAM.csproj",
       "packagesPath": "C:\\Users\\Luis Gustavo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luis Gustavo\\Desktop\\BackEnd\\MVC\\ProjetoLAM\\ProjetoLAM\\obj\\",
+      "outputPath": "C:\\Users\\Luis Gustavo\\Source\\Repos\\ProjetoGrupoLAM\\ProjetoLAM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
